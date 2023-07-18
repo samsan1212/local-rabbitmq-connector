@@ -1,0 +1,9 @@
+{
+    "imports": {
+        "~/": "./"
+    },
+    "tasks": {
+        "consume": "deno run -A ./bin/consume_message.ts",
+        "consume:dev": "deno run -A --watch ./bin/consume_message.ts"
+    }
+}

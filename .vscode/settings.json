@@ -1,0 +1,18 @@
+{
+    "deno.enable": true,
+    "deno.unstable": true,
+    "eslint.enable": false,
+    "prettier.enable": false,
+    "[json]": {
+      "editor.defaultFormatter": "vscode.json-language-features"
+    },
+    "[jsonc]": {
+      "editor.defaultFormatter": "vscode.json-language-features"
+    },
+    "[typescript]": {
+      "editor.defaultFormatter": "denoland.vscode-deno"
+    },
+    "[javascript]": {
+      "editor.defaultFormatter": "denoland.vscode-deno"
+    }
+  }
