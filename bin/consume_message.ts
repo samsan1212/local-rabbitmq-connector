@@ -16,9 +16,11 @@ await channel.consume(
       payload = payloadStr;
     }
 
-    logger.info(`Args:\n${JSON.stringify(args, null, 2)}\n`);
-    logger.info(`Props:\n${JSON.stringify(props, null, 2)}\n`);
-    if (payload) logger.info(`Payload:\n${JSON.stringify(payload, null, 2)}\n`);
+    logger.info(
+      `Message: \n${
+        JSON.stringify({ args, props, ...(payload && { payload }) }, null, 2)
+      }\n`,
+    );
     await channel.ack({ deliveryTag: args.deliveryTag });
   },
 );
