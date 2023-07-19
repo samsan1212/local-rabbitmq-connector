@@ -3,3 +3,5 @@
 deno.lock
 logs
 bin
+
+.DS_Store
