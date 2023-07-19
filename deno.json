@@ -3,7 +3,7 @@
         "~/": "./src/"
     },
     "tasks": {
-        "consume": "deno run -A ./src/consume_message.ts",
-        "consume:dev": "deno run -A --watch ./src/consume_message.ts"
+        "consume": "deno run --allow-net --allow-env --allow-write --allow-read --allow-sys ./src/consumer.ts",
+        "consume:dev": "deno run -A --watch ./src/consumer.ts"
     }
 }
