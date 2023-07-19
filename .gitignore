@@ -2,4 +2,4 @@
 !.env.example
 deno.lock
 logs/*
-!logs/.gitkeep
+bin/*

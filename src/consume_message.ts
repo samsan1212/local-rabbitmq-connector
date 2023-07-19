@@ -1,8 +1,8 @@
-import { connection } from "~/lib/rabbitmq.ts";
+import "~/lib/rabbitmq/init.ts";
+
+import { channel } from "~/lib/rabbitmq/channel.ts";
 import { config } from "~/lib/config.ts";
 import { logger } from "~/lib/logger.ts";
-
-const channel = await connection.openChannel();
 
 await channel.consume(
   { queue: config.RABBITMQ_QUEUE_NAME },
@@ -18,9 +18,15 @@ await channel.consume(
 
     logger.info(
       `Message: \n${
-        JSON.stringify({ args, props, ...(payload && { payload }) }, null, 2)
+        JSON.stringify(
+          { args, props, ...(payload && { payload }) },
+          null,
+          config.PRETTY_LOGS ? 2 : undefined,
+        )
       }\n`,
     );
     await channel.ack({ deliveryTag: args.deliveryTag });
   },
 );
+
+logger.info(`Consuming messages from queue "${config.RABBITMQ_QUEUE_NAME}"`);
